@@ -36,7 +36,7 @@ public class BasicAuthWebSecurityConfiguration
   public InMemoryUserDetailsManager userDetailsService() {
     UserDetails user = User
         .withUsername("IVasili")
-        .password(passwordEncoder().encode("inv1990"))
+        .password(passwordEncoder().encode("5tgb%TGB"))
         .roles("USER_ROLE")
         .build();
     return new InMemoryUserDetailsManager(user);

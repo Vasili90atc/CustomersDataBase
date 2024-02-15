@@ -1,7 +1,7 @@
 package gr.atc.training.CustomersData.models;
-
 import java.util.Set;
 
+import gr.atc.training.CustomersData.models.Customer;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -49,5 +49,40 @@ public class Company {
 
 	public String toString() {
 		return "Company [ Id=" + id + ", " + "companyName=" + companyName + " , " + "address=" + address + "]";
+	}
+
+	public Object getHead10Company() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Object findCustomerByEmail(String email) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Object createNewCompany(Company company) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Object getCustomerByFirstNameOrLastName(String firstName, String lastName) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void deleteCustomer(String email) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public Object findCompanyId(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void deleteCompany(int id) {
+		// TODO Auto-generated method stub
+		
 	}
 }

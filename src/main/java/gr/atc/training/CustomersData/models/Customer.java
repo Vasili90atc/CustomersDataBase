@@ -2,6 +2,8 @@ package gr.atc.training.CustomersData.models;
 
 import java.util.Set;
 
+
+
 import jakarta.persistence.Column;
 
 import jakarta.persistence.Entity;
