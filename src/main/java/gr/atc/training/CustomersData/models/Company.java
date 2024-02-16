@@ -1,7 +1,7 @@
 package gr.atc.training.CustomersData.models;
+import java.util.HashSet;
 import java.util.Set;
 
-import gr.atc.training.CustomersData.models.Customer;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -11,17 +11,24 @@ import jakarta.persistence.ManyToMany;
 public class Company {
 
 	@Id
-//this is the primary key
+	//this is the primary key
 	private int id;
 	@Column(name = "company_name")
 	private String companyName;
 	private String address;
 	
 	@ManyToMany(mappedBy = "companies")
-    Set<Customer> customers;
-	public Company() {
-
+    Set<Customer> customers = new HashSet<Customer>();
+	
+	public void addCustomer(Customer customer) {
+		customers.add(customer);
 	}
+
+	public void removeCustomer(Customer customer) {
+		customers.remove(customer);		
+	}
+	
+	public Company() {}
 
 	public int getId() {
 		return id;
@@ -51,38 +58,5 @@ public class Company {
 		return "Company [ Id=" + id + ", " + "companyName=" + companyName + " , " + "address=" + address + "]";
 	}
 
-	public Object getHead10Company() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
-	public Object findCustomerByEmail(String email) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public Object createNewCompany(Company company) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public Object getCustomerByFirstNameOrLastName(String firstName, String lastName) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public void deleteCustomer(String email) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	public Object findCompanyId(int id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public void deleteCompany(int id) {
-		// TODO Auto-generated method stub
-		
-	}
 }

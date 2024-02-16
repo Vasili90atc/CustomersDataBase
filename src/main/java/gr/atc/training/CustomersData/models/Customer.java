@@ -1,5 +1,6 @@
 package gr.atc.training.CustomersData.models;
 
+import java.util.HashSet;
 import java.util.Set;
 
 
@@ -33,11 +34,19 @@ public class Customer {
 	
 	@ManyToMany
 	@JoinTable(name = "customer_company")
-    Set<Company> companies;
+    Set<Company> companies = new HashSet<>();
 	
-	public Customer() {
-	}
+	public Customer() {}
 
+	public void addCompany(Company company) {
+		companies.add(company);
+		company.addCustomer(this);
+	}
+	public void removeCompany(Company company) {
+		companies.remove(company);
+		company.removeCustomer(this);
+	}
+	
 	public String getFirst_name() {
 		return firstName;
 	}

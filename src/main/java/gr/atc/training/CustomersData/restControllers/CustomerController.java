@@ -13,7 +13,6 @@ import java.util.List;
 
 @Configuration
 @Controller
-
 @RequestMapping("/api/v1/customers")
 public class CustomerController<InMemoryUserDetailsManager> {
 

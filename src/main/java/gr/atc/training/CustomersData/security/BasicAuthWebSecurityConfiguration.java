@@ -15,7 +15,7 @@ import org.springframework.security.web.authentication.www.BasicAuthenticationEn
 public class BasicAuthWebSecurityConfiguration
 {
   @Bean
-  public BasicAuthenticationEntryPoint basicAuthenticationEntryPoint() {
+  BasicAuthenticationEntryPoint basicAuthenticationEntryPoint() {
       BasicAuthenticationEntryPoint entryPoint = new BasicAuthenticationEntryPoint();
       entryPoint.setRealmName("CustomersDataBase");
       return entryPoint;
@@ -23,7 +23,7 @@ public class BasicAuthWebSecurityConfiguration
   
   @SuppressWarnings({"removal" })
   @Bean
-  public SecurityFilterChain filterChain(HttpSecurity http, BasicAuthenticationEntryPoint authenticationEntryPoint) throws Exception {
+  SecurityFilterChain filterChain(HttpSecurity http, BasicAuthenticationEntryPoint authenticationEntryPoint) throws Exception {
     http.authorizeHttpRequests()
         .anyRequest().authenticated()
         .and()
@@ -32,18 +32,18 @@ public class BasicAuthWebSecurityConfiguration
     return http.build();
   }
 
-  @Bean
-  public InMemoryUserDetailsManager userDetailsService() {
+    @Bean
+    InMemoryUserDetailsManager userDetailsService() {
     UserDetails user = User
-        .withUsername("IVasili")
-        .password(passwordEncoder().encode("5tgb%TGB"))
-        .roles("USER_ROLE")
+        .withUsername("user")
+        .password(passwordEncoder().encode("password"))
+        .roles("USER_ADMIN")
         .build();
     return new InMemoryUserDetailsManager(user);
   }
 
-  @Bean
-  public PasswordEncoder passwordEncoder() {
+    @Bean
+    PasswordEncoder passwordEncoder() {
     return new BCryptPasswordEncoder(8);
   }
 }

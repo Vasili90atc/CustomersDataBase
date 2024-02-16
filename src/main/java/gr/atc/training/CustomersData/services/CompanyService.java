@@ -4,7 +4,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import gr.atc.training.CustomersData.models.Company;
-import gr.atc.training.CustomersData.models.Customer;
 import gr.atc.training.CustomersData.repositories.CompanyRepository;
 
 
@@ -12,37 +11,30 @@ import gr.atc.training.CustomersData.repositories.CompanyRepository;
 public class CompanyService {
 
 	@Autowired
-	private CompanyRepository companysRepository;
+	private CompanyRepository companyRepository;
 
 	public Company createNewCompany(Company company) {
-		return companysRepository.save(company);
+		return companyRepository.save(company);
 	}
 
-	/*public List<Customer> getHead10Customers() {
-		List<Company> l = companyRepository.findAll();
-		return l.subList(0, 10);
-	} */
-
-	public List<Company> getAllCustomers() {
-		return companysRepository.findAll();
+	public List<Company> getAllCompanies() {
+		return companyRepository.findAll();
 	}
 
 	public void deleteCompany(int id) {
-		@SuppressWarnings("deprecation")
-		Company company = companysRepository.getById(id);
-		companysRepository.delete(company);
+		Company company = companyRepository.getReferenceById(id);
+		companyRepository.delete(company);
 	}
 
-	public Company updateCompany(Company id) {
-		return companysRepository.save(id);
+	public Company updateCompany(Company company) {
+		return companyRepository.save(company);
 	}
 
-	public Company getCustomerById(String id) {
-		return companysRepository.findById(id);
+	public Company getCompanyById(int id) {
+		return companyRepository.findById(id);
 	}
 	
-	public String getCompanyByName(String companyName, int id) {
-		System.out.println(companyName);
-		return CompanyRepository.findBycompanyName(companyName);
+	public List<Company> getCompanyByName(String name) {
+		return companyRepository.findByName(name);
 	}
 }
