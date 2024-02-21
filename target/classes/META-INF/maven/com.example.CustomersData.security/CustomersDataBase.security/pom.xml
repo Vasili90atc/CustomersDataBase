@@ -9,7 +9,7 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example.CustomersData.security</groupId>
-	<artifactId>CustomerDataBase.security</artifactId>
+	<artifactId>CustomersDataBase.security</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>customerBaseService</name>
 	<description>Customer Data Base App</description>
@@ -36,10 +36,12 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
+		
 		
 	</dependencies>
 

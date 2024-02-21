@@ -1,4 +1,5 @@
-package gr.atc.training.CustomersData.customerDatabase;
+package gr.atc.training.CustomersData;
+
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
