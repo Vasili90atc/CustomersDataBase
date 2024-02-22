@@ -1,23 +1,28 @@
 package gr.atc.training.CustomersData.restControllers;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import gr.atc.training.CustomersData.models.Company;
 import gr.atc.training.CustomersData.services.CompanyService;
 
-@RestController
+@Configuration
+@Controller
 @RequestMapping("/api/v1/company")
-public class CompanyController {
+public class CompanyController<InMemoryUserDetailsManager> {
 
 	@Autowired
 	private CompanyService companyService;
 	
 	@PostMapping("/")
 	public ResponseEntity<Object> createCompany(@RequestBody Company company) {
+		//System.out.println(" post");
 		return ResponseEntity.ok(companyService.createNewCompany(company));
 	}
 	@GetMapping("/")
 	public ResponseEntity<Object> getAllCompanies() {
+		//System.out.println(" get");
 		return ResponseEntity.ok(companyService.getAllCompanies());
 	}
 	

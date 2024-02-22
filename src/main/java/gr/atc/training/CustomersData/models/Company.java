@@ -13,8 +13,8 @@ public class Company {
 	@Id
 	//this is the primary key
 	private int id;
-	@Column(name = "company_name")
-	private String companyName;
+	@Column(name = "Name")
+	private String name;
 	private String address;
 	
 	@ManyToMany(mappedBy = "companies")
@@ -38,12 +38,12 @@ public class Company {
 		this.id = id;
 	}
 
-	public String getCompanyName() {
-		return companyName;
+	public String getName() {
+		return name;
 	}
 
-	public void setCompanyName(String companyName) {
-		this.companyName = companyName;
+	public void setName(String companyName) {
+		this.name = companyName;
 	}
 
 	public String getAddress() {
@@ -55,7 +55,7 @@ public class Company {
 	}
 
 	public String toString() {
-		return "Company [ Id=" + id + ", " + "companyName=" + companyName + " , " + "address=" + address + "]";
+		return "Company [ Id=" + id + ", " + "companyName=" + name + " , " + "address=" + address + "]";
 	}
 
 
